@@ -1,0 +1,27 @@
+name: super_box
+description: Easy use box
+version: 0.0.1
+publish_to: none
+homepage: https://github.com/RagehAz/super_box.git
+
+environment:
+  sdk: ">=2.10.5 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  super_image:
+    git:
+      url: https://github.com/RagehAz/super_image.git
+  super_text:
+    git:
+      url: https://github.com/RagehAz/super_text.git
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:

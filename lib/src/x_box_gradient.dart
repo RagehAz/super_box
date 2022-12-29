@@ -1,0 +1,35 @@
+import 'package:flutter/material.dart';
+
+class BoxGradient extends StatelessWidget {
+  /// --------------------------------------------------------------------------
+  const BoxGradient({
+    @required this.width,
+    @required this.height,
+    @required this.corners,
+    Key key,
+  }) : super(key: key);
+  /// --------------------------------------------------------------------------
+  final double width;
+  final double height;
+  final BorderRadius corners;
+  /// --------------------------------------------------------------------------
+  @override
+  Widget build(BuildContext context) {
+
+    return Container(
+      height: height,
+      width: width,
+      decoration: BoxDecoration(
+        // color: Colorz.Grey,
+        borderRadius: corners,
+        gradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: <Color>[Color.fromARGB(0, 0, 0, 0), Color.fromARGB(125, 0, 0, 0)],
+            stops: <double>[0.5, 0.95]),
+      ),
+    );
+
+  }
+  /// --------------------------------------------------------------------------
+}
