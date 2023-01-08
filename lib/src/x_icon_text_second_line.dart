@@ -171,7 +171,8 @@ class IconTextSecondLine extends StatelessWidget {
 
   }
   // --------------------
-  /// TESTED : WORKS PERFECT
+  /// TESTED : WORKS PERFECT : TASK : RE-WORK THE TEXT SHADOW THING
+  /*
   bool _verseShadowIsOn() {
     bool _isOn;
 
@@ -185,6 +186,7 @@ class IconTextSecondLine extends StatelessWidget {
 
     return _isOn;
   }
+   */
   // --------------------
   /// TESTED : WORKS PERFECT
   bool _verseIsCentered() {
@@ -205,7 +207,8 @@ class IconTextSecondLine extends StatelessWidget {
     return _centered;
   }
   // --------------------
-  /// TESTED : WORKS PERFECT
+  /// TESTED : WORKS PERFECT : TASK : RE-WORK THE TEXT SHADOW THING
+  /*
   bool _secondLineShadowIsOn() {
     bool _isOn;
 
@@ -219,6 +222,7 @@ class IconTextSecondLine extends StatelessWidget {
 
     return _isOn;
   }
+   */
   // -----------------------------------------------------------------------------
   @override
   Widget build(BuildContext context) {
