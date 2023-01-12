@@ -1,4 +1,8 @@
 
+## 0.0.3
+
+* bug fix in loading indicator
+
 ## 0.0.2
 
 * Added Loading indicator to replace icon if loading
