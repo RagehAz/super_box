@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:super_box/src/x_loading.dart';
 import 'package:super_image/super_image.dart';
 
 class BoxIcon extends StatelessWidget {
@@ -33,20 +34,30 @@ class BoxIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return SuperImage(
-      key: const ValueKey<String>('DreamBoxIcon'),
-      width: size,
-      height: size,
-      pic: icon,
-      // boxFit: BoxFit.cover,
-      scale: iconSizeFactor,
-      iconColor: iconColor,
-      loading: loading,
-      greyscale: greyscale,
-      corners: corners,
-      backgroundColor: backgroundColor,
-      package: package,
-    );
+    if (loading == true){
+      return Loading(
+        loading: true,
+        size: size,
+        color: iconColor,
+      );
+    }
+
+    else {
+      return SuperImage(
+        key: const ValueKey<String>('DreamBoxIcon'),
+        width: size,
+        height: size,
+        pic: icon,
+        // boxFit: BoxFit.cover,
+        scale: iconSizeFactor,
+        iconColor: iconColor,
+        loading: loading,
+        greyscale: greyscale,
+        corners: corners,
+        backgroundColor: backgroundColor,
+        package: package,
+      );
+    }
 
   }
   /// --------------------------------------------------------------------------

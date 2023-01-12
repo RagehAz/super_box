@@ -1,6 +1,6 @@
 name: super_box
 description: Easy use box
-version: 0.0.1
+version: 0.0.2
 publish_to: none
 homepage: https://github.com/RagehAz/super_box.git
 
@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_spinkit: ^5.1.0
   super_image:
     git:
       url: https://github.com/RagehAz/super_image.git
