@@ -24,7 +24,7 @@ class IconTextSecondLine extends StatelessWidget {
     @required this.verseCentered,
     @required this.secondLine,
     @required this.verseSize,
-    @required this.verseWeight,
+    @required this.textWeight,
     @required this.inActiveMode,
     @required this.verseColor,
     @required this.verseShadow,
@@ -40,6 +40,7 @@ class IconTextSecondLine extends StatelessWidget {
     @required this.highlightColor,
     @required this.appIsLTR,
     @required this.package,
+    @required this.textFont,
     Key key,
   }) : super(key: key);
   /// --------------------------------------------------------------------------
@@ -59,7 +60,7 @@ class IconTextSecondLine extends StatelessWidget {
   final bool verseCentered;
   final String secondLine;
   final int verseSize;
-  final FontWeight verseWeight;
+  final FontWeight textWeight;
   final bool inActiveMode;
   final Color verseColor;
   final bool verseShadow;
@@ -75,6 +76,7 @@ class IconTextSecondLine extends StatelessWidget {
   final Color highlightColor;
   final bool appIsLTR;
   final String package;
+  final String textFont;
   // ----------------------------------------------------------------------------
   /// TESTED : WORKS PERFECT
   static CrossAxisAlignment versesCrossAlignment({
@@ -227,8 +229,6 @@ class IconTextSecondLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // --------------------
-    final TextDirection _textDirection = textDirection;
-    // --------------------
     final double _jpgGraphicWidth = height * iconSizeFactor;
     // --------------------
     final double _graphicWidth = SuperBox.graphicWidth(
@@ -274,7 +274,7 @@ class IconTextSecondLine extends StatelessWidget {
     // --------------------
     return Row(
       mainAxisAlignment: _mainAxisAlignment,
-      textDirection: _textDirection,
+      textDirection: textDirection,
       children: <Widget>[
 
         /// --- ICON BOX footprint
@@ -378,8 +378,9 @@ class IconTextSecondLine extends StatelessWidget {
 
                         text: verse,
                         lineHeight: height * 0.6,
-                        weight: verseWeight,
-
+                        weight: textWeight,
+                        font: textFont,
+                        textDirection: textDirection,
                         textColor: greyscale == true || inActiveMode == true ?
                         const Color.fromARGB(30, 255, 255, 255)
                             :
@@ -413,6 +414,8 @@ class IconTextSecondLine extends StatelessWidget {
                           secondLineColor,
                           maxLines: secondVerseMaxLines,
                           italic: true,
+                          textDirection: textDirection,
+                          font: textFont,
                           // shadow: _secondLineShadowIsOn(),
                           centered: _verseIsCentered(),
                           // scaleFactor: secondLineScaleFactor,

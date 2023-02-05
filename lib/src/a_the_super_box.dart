@@ -53,6 +53,7 @@ class SuperBox extends StatelessWidget {
     this.onDoubleTap,
     this.appIsLTR = true,
     this.package,
+    this.textFont,
     Key key,
   }) : super(key: key);
   /// --------------------------------------------------------------------------
@@ -101,6 +102,7 @@ class SuperBox extends StatelessWidget {
   final Function onDoubleTap;
   final bool appIsLTR;
   final String package;
+  final String textFont;
   /// --------------------------------------------------------------------------
   static Color getIconColor({
     bool blackAndWhite = false,
@@ -267,7 +269,7 @@ class SuperBox extends StatelessWidget {
           verseCentered: verseCentered,
           secondLine: secondLine,
           verseSize: iconSizeFactor == 1 ? 4 : 4,
-          verseWeight: verseWeight,
+          textWeight: verseWeight,
           inActiveMode: isDisabled,
           verseColor: verseColor,
           verseShadow: verseShadow,
@@ -282,6 +284,7 @@ class SuperBox extends StatelessWidget {
           highlight: verseHighlight,
           highlightColor: verseHighlightColor,
           appIsLTR: appIsLTR,
+          textFont: textFont,
         ),
 
         /// --- BOX HIGHLIGHT

@@ -1,3 +1,11 @@
+## 0.0.6
+
+* Added text font parameter
+
+## 0.0.5
+
+* fixes
+
 ## 0.0.4
 
 * Changed isDeactivated to isDisabled
