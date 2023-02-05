@@ -34,7 +34,7 @@ class SuperBox extends StatelessWidget {
     this.subChild,
     this.childAlignment = Alignment.center,
     this.opacity = 1,
-    this.isDeactivated = false,
+    this.isDisabled = false,
     this.splashColor = const Color.fromARGB(10, 255, 255, 255),
     this.onTapDown,
     this.onTapUp,
@@ -82,7 +82,7 @@ class SuperBox extends StatelessWidget {
   final Widget subChild;
   final Alignment childAlignment;
   final double opacity;
-  final bool isDeactivated;
+  final bool isDisabled;
   final Color splashColor;
   final Function onTapDown;
   final Function onTapUp;
@@ -200,7 +200,7 @@ class SuperBox extends StatelessWidget {
     // --------------------
     return TheBoxOfSuperBox(
       key: const ValueKey<String>('Dream_box_the_box'),
-      inActiveMode: isDeactivated,
+      isDisabled: isDisabled,
       opacity: opacity,
       boxMargins: superMargins(margin: margins),
       width: width,
@@ -258,7 +258,7 @@ class SuperBox extends StatelessWidget {
           greyscale: greyscale,
           bubble: bubble,
           iconColor: getIconColor(
-            inActiveMode: isDeactivated,
+            inActiveMode: isDisabled,
             blackAndWhite: greyscale,
             colorOverride: iconColor,
           ),
@@ -268,7 +268,7 @@ class SuperBox extends StatelessWidget {
           secondLine: secondLine,
           verseSize: iconSizeFactor == 1 ? 4 : 4,
           verseWeight: verseWeight,
-          inActiveMode: isDeactivated,
+          inActiveMode: isDisabled,
           verseColor: verseColor,
           verseShadow: verseShadow,
           verseMaxLines: verseMaxLines,
@@ -313,7 +313,7 @@ class SuperBox extends StatelessWidget {
             onTapUp: onTapUp,
             onTapDown: onTapDown,
             onTapCancel: onTapCancel,
-            deactivated: isDeactivated,
+            deactivated: isDisabled,
             onDeactivatedTap: onDeactivatedTap,
             onLongTap: onLongTap,
             onDoubleTap: onDoubleTap,

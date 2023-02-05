@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TheBoxOfSuperBox extends StatelessWidget {
   /// --------------------------------------------------------------------------
   const TheBoxOfSuperBox({
-    @required this.inActiveMode,
+    @required this.isDisabled,
     @required this.opacity,
     @required this.boxMargins,
     @required this.width,
@@ -14,7 +14,7 @@ class TheBoxOfSuperBox extends StatelessWidget {
     Key key
   }) : super(key: key);
   /// --------------------------------------------------------------------------
-  final bool inActiveMode;
+  final bool isDisabled;
   final double opacity;
   final EdgeInsets boxMargins;
   final double width;
@@ -32,7 +32,7 @@ class TheBoxOfSuperBox extends StatelessWidget {
       children: <Widget>[
         IntrinsicWidth(
           child: Opacity(
-            opacity: inActiveMode == true ? 0.7 : opacity,
+            opacity: isDisabled == true ? 0.7 : opacity,
             child: Padding(
               padding: boxMargins,
               child: ClipRRect(
@@ -45,7 +45,7 @@ class TheBoxOfSuperBox extends StatelessWidget {
                       color:
                       boxColor == const Color.fromARGB(0, 255, 255, 255) ? const Color.fromARGB(0, 255, 255, 255)
                           :
-                      inActiveMode == true ?
+                      isDisabled == true ?
                       const Color.fromARGB(10, 255, 255, 255)
                           :
                       boxColor,

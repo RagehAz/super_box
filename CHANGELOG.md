@@ -1,3 +1,6 @@
+## 0.0.4
+
+* Changed isDeactivated to isDisabled
 
 ## 0.0.3
 
