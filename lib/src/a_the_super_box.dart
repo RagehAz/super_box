@@ -46,7 +46,7 @@ class SuperBox extends StatelessWidget {
     this.secondLineScaleFactor = 1,
     this.loading = false,
     this.iconBackgroundColor,
-    this.onDeactivatedTap,
+    this.onDisabledTap,
     this.verseHighlight,
     this.verseHighlightColor = const Color.fromARGB(100, 255, 0, 0),
     this.onLongTap,
@@ -94,7 +94,7 @@ class SuperBox extends StatelessWidget {
   final double secondLineScaleFactor;
   final bool loading;
   final Color iconBackgroundColor;
-  final Function onDeactivatedTap;
+  final Function onDisabledTap;
   final ValueNotifier<dynamic> verseHighlight;
   final Color verseHighlightColor;
   final Function onLongTap;
@@ -303,7 +303,7 @@ class SuperBox extends StatelessWidget {
           ),
 
         /// --- RIPPLE & TAP LAYER
-        if (onTap != null || onDeactivatedTap != null || onLongTap != null || onDoubleTap != null)
+        if (onTap != null || onDisabledTap != null || onLongTap != null || onDoubleTap != null)
           TapLayer(
             key: const ValueKey<String>('DreamBoxTapLayer'),
             width: width,
@@ -313,8 +313,8 @@ class SuperBox extends StatelessWidget {
             onTapUp: onTapUp,
             onTapDown: onTapDown,
             onTapCancel: onTapCancel,
-            deactivated: isDisabled,
-            onDeactivatedTap: onDeactivatedTap,
+            isDisabled: isDisabled,
+            onDisabledTap: onDisabledTap,
             onLongTap: onLongTap,
             onDoubleTap: onDoubleTap,
           ),
