@@ -99,7 +99,7 @@ class SuperBoxController {
   /// TESTED : WORKS PERFECT
   static bool checkTextIsCentered({
     @required bool verseCentered,
-    @required String icon,
+    @required dynamic icon,
   }) {
     bool _centered;
 

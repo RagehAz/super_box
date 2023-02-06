@@ -20,7 +20,7 @@ class SuperBoxIcon extends StatelessWidget {
   /// --------------------------------------------------------------------------
   final double height;
   final BorderRadius corners;
-  final String icon;
+  final dynamic icon;
   final bool loading;
   final Color iconColor;
   final bool greyScale;

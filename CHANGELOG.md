@@ -1,3 +1,7 @@
+## 1.0.2
+
+* fixes
+
 ## 1.0.1
 
 * Restructure

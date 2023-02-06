@@ -36,7 +36,7 @@ class SuperBoxTexts extends StatelessWidget {
   // -----------------------------------------------------------------------------
   final double height;
   final bool textCentered;
-  final String icon;
+  final dynamic icon;
   final bool loading;
   final double iconSizeFactor;
   final String text;
@@ -177,11 +177,11 @@ class SuperBoxTexts extends StatelessWidget {
                     package: package,
 
                     margin:
-                        // _verseWidth == null ?
-                        EdgeInsets.symmetric(horizontal: height * 0.2)
-                    //     :
-                    // EdgeInsets.zero,
-                    ),
+                    // _verseWidth == null ?
+                    EdgeInsets.symmetric(horizontal: height * 0.2)
+                  //     :
+                  // EdgeInsets.zero,
+                ),
               ),
 
           ],
