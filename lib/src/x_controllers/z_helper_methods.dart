@@ -29,25 +29,6 @@ String fileExtensionOf(dynamic file) {
 }
 // -----------------------------------------------------------------------------
 /// TESTED : WORKS PERFECT
-BorderRadius getCornersAsBorderRadius(BuildContext context, dynamic corners) {
-  BorderRadius _cornerBorders;
-
-  if (corners == 0) {
-    _cornerBorders = BorderRadius.zero;
-  }
-
-  else if (corners.runtimeType == BorderRadius) {
-    _cornerBorders = corners;
-  }
-
-  else {
-    _cornerBorders = cornerAll(context, corners?.toDouble());
-  }
-
-  return _cornerBorders;
-}
-// -----------------------------------------------------------------------------
-/// TESTED : WORKS PERFECT
 double getCornersAsDouble(dynamic corners) {
   double _topLeftCorner = 0;
 
@@ -75,30 +56,6 @@ BorderRadius cornerAll(BuildContext context, double corners) {
   return BorderRadius.all(Radius.circular(corners));
 }
 // -----------------------------------------------------------------------------
-/// TESTED : WORKS PERFECT
-EdgeInsets superMargins({dynamic margin}) {
-
-  if (margin == null || margin == 0){
-    return EdgeInsets.zero;
-  }
-
-  else if (margin.runtimeType == double){
-    return EdgeInsets.all(margin);
-  }
-
-  else if (margin.runtimeType == int){
-    return EdgeInsets.all(margin.toDouble());
-  }
-
-  else if (margin.runtimeType == EdgeInsets){
-    return margin;
-  }
-
-  else {
-    return margin;
-  }
-
-}
 // --------------------
 /// TESTED : WORKS PERFECT
 bool objectIsSVG(dynamic object) {

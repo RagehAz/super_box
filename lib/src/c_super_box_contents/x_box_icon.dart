@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:super_box/src/x_loading.dart';
 import 'package:super_image/super_image.dart';
-
+import '../x_controllers/xxx_super_box_controller.dart';
+import 'x_loading.dart';
+/// => TAMAM
 class BoxIcon extends StatelessWidget {
   /// --------------------------------------------------------------------------
   const BoxIcon({
@@ -9,13 +10,12 @@ class BoxIcon extends StatelessWidget {
     @required this.loading,
     @required this.size,
     @required this.corners,
-    @required this.iconMargin,
     @required this.greyscale,
-    @required this.bubble,
     @required this.iconColor,
     @required this.iconSizeFactor,
     @required this.backgroundColor,
     @required this.package,
+    @required this.isDisabled,
     Key key,
   }) : super(key: key);
   /// --------------------------------------------------------------------------
@@ -23,22 +23,27 @@ class BoxIcon extends StatelessWidget {
   final bool loading;
   final double size;
   final BorderRadius corners;
-  final double iconMargin;
   final bool greyscale;
-  final bool bubble;
   final Color iconColor;
   final double iconSizeFactor;
   final Color backgroundColor;
   final String package;
+  final bool isDisabled;
   /// --------------------------------------------------------------------------
   @override
   Widget build(BuildContext context) {
+
+    final Color _iconColor = SuperBoxController.iconColor(
+      colorOverride: iconColor,
+      isDisabled: isDisabled,
+      greyScale: greyscale,
+    );
 
     if (loading == true){
       return Loading(
         loading: true,
         size: size,
-        color: iconColor,
+        color: _iconColor,
       );
     }
 
@@ -48,9 +53,8 @@ class BoxIcon extends StatelessWidget {
         width: size,
         height: size,
         pic: icon,
-        // boxFit: BoxFit.cover,
         scale: iconSizeFactor,
-        iconColor: iconColor,
+        iconColor: _iconColor,
         loading: loading,
         greyscale: greyscale,
         corners: corners,

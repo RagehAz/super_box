@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'x_custom_box_shadow.dart';
-import 'z_helper_methods.dart';
-
-class BoxHighlight extends StatelessWidget {
+/// => TAMAM
+class BoxGradient extends StatelessWidget {
   /// --------------------------------------------------------------------------
-  const BoxHighlight({
+  const BoxGradient({
     @required this.width,
     @required this.height,
     @required this.corners,
@@ -13,24 +11,26 @@ class BoxHighlight extends StatelessWidget {
   /// --------------------------------------------------------------------------
   final double width;
   final double height;
-  final dynamic corners;
+  final BorderRadius corners;
   /// --------------------------------------------------------------------------
   @override
   Widget build(BuildContext context) {
+
     return Container(
+      key: const ValueKey<String>('DreamBoxGradient'),
+      height: height,
       width: width,
-      height: height * 0.27,
       decoration: BoxDecoration(
-          // color: Colorz.White,
-          borderRadius: BorderRadius.circular(getCornersAsDouble(corners) - (height * 0.8)),
-          boxShadow: <BoxShadow>[
-            CustomBoxShadow(
-                color: const Color.fromARGB(50, 255, 255, 255),
-                offset: Offset(0, height * -0.33),
-                blurRadius: height * 0.2),
-          ],
+        // color: Colorz.Grey,
+        borderRadius: corners,
+        gradient: const LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: <Color>[Color.fromARGB(0, 0, 0, 0), Color.fromARGB(125, 0, 0, 0)],
+            stops: <double>[0.5, 0.95]),
       ),
     );
+
   }
   /// --------------------------------------------------------------------------
 }

@@ -1,33 +1,34 @@
 import 'package:flutter/material.dart';
-
-class BoxGradient extends StatelessWidget {
+/// => TAMAM
+class SuperBoxChild extends StatelessWidget {
   /// --------------------------------------------------------------------------
-  const BoxGradient({
+  const SuperBoxChild({
     @required this.width,
     @required this.height,
-    @required this.corners,
-    Key key,
+    @required this.borderRadius,
+    @required this.childAlignment,
+    @required this.subChild,
+    Key key
   }) : super(key: key);
   /// --------------------------------------------------------------------------
   final double width;
   final double height;
-  final BorderRadius corners;
+  final BorderRadius borderRadius;
+  final Alignment childAlignment;
+  final Widget subChild;
   /// --------------------------------------------------------------------------
   @override
   Widget build(BuildContext context) {
 
     return Container(
+      key: const ValueKey<String>('DreamBoxChild'),
       height: height,
       width: width,
       decoration: BoxDecoration(
-        // color: Colorz.Grey,
-        borderRadius: corners,
-        gradient: const LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: <Color>[Color.fromARGB(0, 0, 0, 0), Color.fromARGB(125, 0, 0, 0)],
-            stops: <double>[0.5, 0.95]),
+        borderRadius: borderRadius,
       ),
+      alignment: childAlignment,
+      child: subChild,
     );
 
   }

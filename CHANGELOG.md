@@ -1,3 +1,7 @@
+## 1.0.0
+
+* Major upgrade and widgets restructure
+
 ## 0.0.6
 
 * Added text font parameter

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'x_box_gradient.dart';
-import 'x_box_highlight.dart';
-import 'x_tap_layer.dart';
-import 'x_icon_text_second_line.dart';
-import 'z_helper_methods.dart';
-import 'x_the_box_of_super_box.dart';
+import 'b_super_box_child/x_super_box_child.dart';
+import 'd_super_box_highlights/x_box_highlight.dart';
+import 'e_super_box_gradient/x_box_gradient.dart';
+import 'f_super_box_tap_layer/x_tap_layer.dart';
+import 'c_super_box_contents/x_super_box_contents.dart';
+import 'x_controllers/xxx_super_box_controller.dart';
+import 'a_the_box_of_super_box/x_the_box_of_super_box.dart';
 
 class SuperBox extends StatelessWidget {
   /// --------------------------------------------------------------------------
@@ -16,21 +17,21 @@ class SuperBox extends StatelessWidget {
     this.color = const Color.fromARGB(0, 255, 255, 255),
     this.corners,
     this.iconColor,
-    this.verse,
-    this.verseColor = const Color.fromARGB(255, 255, 255, 255),
-    this.verseWeight = FontWeight.w400,
-    this.verseScaleFactor = 1,
-    this.verseShadow,
-    this.verseItalic = false,
-    this.verseMaxLines = 1,
-    this.secondVerseMaxLines = 10,
+    this.text,
+    this.textColor = const Color.fromARGB(255, 255, 255, 255),
+    this.textWeight = FontWeight.w400,
+    this.textScaleFactor = 1,
+    this.textShadow,
+    this.textItalic = false,
+    this.textMaxLines = 1,
+    this.secondTextMaxLines = 10,
     this.onTap,
     this.margins,
     this.greyscale = false,
     this.iconRounded = true,
     this.bubble = true,
-    this.secondLine,
-    this.verseCentered = true,
+    this.secondText,
+    this.textCentered = true,
     this.subChild,
     this.childAlignment = Alignment.center,
     this.opacity = 1,
@@ -41,45 +42,46 @@ class SuperBox extends StatelessWidget {
     this.onTapCancel,
     this.textDirection = TextDirection.ltr,
     this.blur,
-    this.secondLineColor = const Color.fromARGB(255, 255, 255, 255),
+    this.secondTextColor = const Color.fromARGB(255, 255, 255, 255),
     this.redDot = false,
-    this.secondLineScaleFactor = 1,
+    this.secondTextScaleFactor = 1,
     this.loading = false,
     this.iconBackgroundColor,
     this.onDisabledTap,
-    this.verseHighlight,
-    this.verseHighlightColor = const Color.fromARGB(100, 255, 0, 0),
+    this.textHighlight,
+    this.textHighlightColor = const Color.fromARGB(100, 255, 0, 0),
     this.onLongTap,
     this.onDoubleTap,
     this.appIsLTR = true,
     this.package,
     this.textFont,
+    this.letterSpacing,
     Key key,
   }) : super(key: key);
   /// --------------------------------------------------------------------------
   final dynamic icon;
-  /// works as a verseSizeFactor as well
+  /// works as textSizeFactor as well
   final double iconSizeFactor;
   final Color color;
   final double width;
   final double height;
   final dynamic corners;
   final Color iconColor;
-  final String verse;
-  final Color verseColor;
-  final FontWeight verseWeight;
-  final double verseScaleFactor;
-  final bool verseShadow;
-  final bool verseItalic;
-  final int verseMaxLines;
-  final int secondVerseMaxLines;
+  final String text;
+  final Color textColor;
+  final FontWeight textWeight;
+  final double textScaleFactor;
+  final bool textShadow;
+  final bool textItalic;
+  final int textMaxLines;
+  final int secondTextMaxLines;
   final Function onTap;
   final dynamic margins;
   final bool greyscale;
   final bool iconRounded;
   final bool bubble;
-  final String secondLine;
-  final bool verseCentered;
+  final String secondText;
+  final bool textCentered;
   final Widget subChild;
   final Alignment childAlignment;
   final double opacity;
@@ -90,128 +92,38 @@ class SuperBox extends StatelessWidget {
   final Function onTapCancel;
   final TextDirection textDirection;
   final double blur;
-  final Color secondLineColor;
+  final Color secondTextColor;
   final bool redDot;
-  final double secondLineScaleFactor;
+  final double secondTextScaleFactor;
   final bool loading;
   final Color iconBackgroundColor;
   final Function onDisabledTap;
-  final ValueNotifier<dynamic> verseHighlight;
-  final Color verseHighlightColor;
+  final ValueNotifier<dynamic> textHighlight;
+  final Color textHighlightColor;
   final Function onLongTap;
   final Function onDoubleTap;
   final bool appIsLTR;
   final String package;
   final String textFont;
+  final double letterSpacing;
   /// --------------------------------------------------------------------------
-  static Color getIconColor({
-    bool blackAndWhite = false,
-    bool inActiveMode = false,
-    Color colorOverride
-  }) {
-
-    if (blackAndWhite == true || inActiveMode == true){
-      return const Color.fromARGB(30, 255, 255, 255);
-    }
-    else {
-      return colorOverride;
-    }
-
-  }
-  // --------------------
-  static double graphicWidth({
-    dynamic icon,
-    double height,
-    bool loading,
-    double iconSizeFactor,
-  }) {
-
-    if (icon == null && loading == false){
-      return 0;
-    }
-    else if (
-    fileExtensionOf(icon) == 'svg' ||
-    fileExtensionOf(icon) == 'jpg' ||
-    fileExtensionOf(icon) == 'jpeg' ||
-    fileExtensionOf(icon) == 'png'
-    ){
-      return height * iconSizeFactor;
-    }
-    else {
-      return height;
-    }
-
-  }
-  // --------------------
-  static double iconMargin({
-    dynamic icon,
-    double height,
-    double graphicWidth,
-    String verse,
-  }) {
-
-    if (verse == null || icon == null){
-      return 0;
-    }
-    else {
-      return (height - graphicWidth) / 2;
-    }
-
-  }
-  // --------------------
-  static Color boxColor({
-    bool blackAndWhite,
-    Color color
-  }) {
-
-    if (blackAndWhite == true && color != const Color.fromARGB(0, 255, 255, 255)){
-      return  const Color.fromARGB(80, 121, 121, 121);
-    }
-    else if (color == const Color.fromARGB(0, 255, 255, 255) && blackAndWhite == true){
-      return const Color.fromARGB(0, 255, 255, 255);
-    }
-    else {
-      return color;
-    }
-
-  }
-  // --------------------
-  static BorderRadius boxCorners = const BorderRadius.all(Radius.circular(12));
-  // --------------------
-  static BorderRadius getBoxCorners({
-    @required BuildContext context,
-    @required dynamic cornersOverride,
-  }){
-
-    if (cornersOverride == null){
-      return boxCorners;
-    }
-    else {
-      return getCornersAsBorderRadius(context, cornersOverride ?? 0);
-    }
-
-  }
-  // -----------------------------------------------------------------------------
   @override
   Widget build(BuildContext context) {
     // --------------------
-    final BorderRadius _boxCorners = getBoxCorners(
+    final BorderRadius _borderRadius = SuperBoxController.boxCorners(
       context: context,
       cornersOverride: corners,
     );
     // --------------------
     return TheBoxOfSuperBox(
-      key: const ValueKey<String>('Dream_box_the_box'),
       isDisabled: isDisabled,
       opacity: opacity,
-      boxMargins: superMargins(margin: margins),
+      margins: margins,
       width: width,
       height: height,
-      boxColor: boxColor(
-        color: color,
-        blackAndWhite: greyscale,
-      ),
-      cornersAsBorderRadius: _boxCorners,
+      boxColor: color,
+      greyScale: greyscale,
+      borderRadius: _borderRadius,
       children: <Widget>[
 
         // /// --- BLUR LAYER
@@ -223,92 +135,70 @@ class SuperBox extends StatelessWidget {
         //     borders: _cornersAsBorderRadius,
         //   ),
 
-        /// --- DREAM CHILD
+        /// CHILD
         if (subChild != null)
-          Container(
+          SuperBoxChild(
             height: height,
             width: width,
-            decoration: BoxDecoration(
-              borderRadius: _boxCorners,
-            ),
-            alignment: childAlignment,
-            child: subChild,
+            borderRadius: _borderRadius,
+            childAlignment: childAlignment,
+            subChild: subChild,
           ),
 
-        /// ICON - VERSE - SECOND LINE
-        IconTextSecondLine(
-          key: const ValueKey<String>('DreamBoxIconVerseSecondLine'),
+        /// ICON - TEXT - SECOND LINE
+        SuperBoxContents(
           package: package,
-          verse: verse,
+          text: text,
           textDirection: textDirection,
           icon: icon,
           loading: loading,
           height: height,
           width: width,
-          iconCorners: getCornersAsBorderRadius(context, _boxCorners),
-          iconMargin: iconMargin(
-            height: height,
-            icon: icon,
-            verse: verse,
-            graphicWidth: graphicWidth(
-              icon: icon,
-              height: height,
-              iconSizeFactor: iconSizeFactor,
-              loading: loading,
-            ),
-          ),
-          greyscale: greyscale,
-          bubble: bubble,
-          iconColor: getIconColor(
-            inActiveMode: isDisabled,
-            blackAndWhite: greyscale,
-            colorOverride: iconColor,
-          ),
+          iconCorners: _borderRadius,
+          greyScale: greyscale,
+          iconColor: iconColor,
           iconSizeFactor: iconSizeFactor,
-          verseScaleFactor: verseScaleFactor,
-          verseCentered: verseCentered,
-          secondLine: secondLine,
-          verseSize: iconSizeFactor == 1 ? 4 : 4,
-          textWeight: verseWeight,
-          inActiveMode: isDisabled,
-          verseColor: verseColor,
-          verseShadow: verseShadow,
-          verseMaxLines: verseMaxLines,
-          secondVerseMaxLines: secondVerseMaxLines,
-          verseItalic: verseItalic,
+          textScaleFactor: textScaleFactor,
+          textCentered: textCentered,
+          secondText: secondText,
+          textWeight: textWeight,
+          textColor: textColor,
+          textShadow: textShadow,
+          textMaxLines: textMaxLines,
+          secondTextMaxLines: secondTextMaxLines,
+          textItalic: textItalic,
           redDot: redDot,
-          secondLineScaleFactor: secondLineScaleFactor,
-          secondLineColor: secondLineColor,
-          centered: verseCentered,
+          secondTextScaleFactor: secondTextScaleFactor,
+          secondTextColor: secondTextColor,
+          centered: textCentered,
           backgroundColor: iconBackgroundColor,
-          highlight: verseHighlight,
-          highlightColor: verseHighlightColor,
+          highlight: textHighlight,
+          highlightColor: textHighlightColor,
           appIsLTR: appIsLTR,
           textFont: textFont,
+          isDisabled: isDisabled,
+          letterSpacing: letterSpacing,
         ),
 
-        /// --- BOX HIGHLIGHT
+        /// HIGHLIGHT
         if (bubble == true)
           BoxHighlight(
-              key: const ValueKey<String>('DreamBoxHighlight'),
               width: width,
               height: height,
-              corners: _boxCorners
+              corners: _borderRadius
           ),
 
-        /// --- BOX GRADIENT
+        /// GRADIENT
         if (bubble == true)
           BoxGradient(
-            key: const ValueKey<String>('DreamBoxGradient'),
             width: width,
             height: height,
-            corners: _boxCorners,
+            corners: _borderRadius,
           ),
 
-        /// --- RIPPLE & TAP LAYER
+        /// RIPPLE & TAP LAYER
         if (onTap != null || onDisabledTap != null || onLongTap != null || onDoubleTap != null)
           TapLayer(
-            key: const ValueKey<String>('DreamBoxTapLayer'),
             width: width,
             height: height,
             splashColor: splashColor,

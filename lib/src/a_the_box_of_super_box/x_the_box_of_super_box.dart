@@ -1,54 +1,59 @@
 import 'package:flutter/material.dart';
-
+import '../x_controllers/xxx_super_box_controller.dart';
+/// => TAMAM
 class TheBoxOfSuperBox extends StatelessWidget {
   /// --------------------------------------------------------------------------
   const TheBoxOfSuperBox({
     @required this.isDisabled,
     @required this.opacity,
-    @required this.boxMargins,
+    @required this.margins,
     @required this.width,
     @required this.height,
     @required this.boxColor,
-    @required this.cornersAsBorderRadius,
+    @required this.greyScale,
+    @required this.borderRadius,
     @required this.children,
     Key key
   }) : super(key: key);
   /// --------------------------------------------------------------------------
   final bool isDisabled;
   final double opacity;
-  final EdgeInsets boxMargins;
+  final dynamic margins;
   final double width;
   final double height;
   final Color boxColor;
-  final BorderRadius cornersAsBorderRadius;
+  final bool greyScale;
+  final BorderRadius borderRadius;
   final List<Widget> children;
   /// --------------------------------------------------------------------------
   @override
   Widget build(BuildContext context) {
 
     return Row(
+      key: const ValueKey<String>('Dream_box_the_box'),
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
+
         IntrinsicWidth(
           child: Opacity(
             opacity: isDisabled == true ? 0.7 : opacity,
             child: Padding(
-              padding: boxMargins,
+              padding: SuperBoxController.superMargins(
+                margin: margins,
+              ),
               child: ClipRRect(
-                borderRadius: cornersAsBorderRadius,
+                borderRadius: borderRadius,
                 child: Container(
                   width: width,
                   height: height,
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
-                      color:
-                      boxColor == const Color.fromARGB(0, 255, 255, 255) ? const Color.fromARGB(0, 255, 255, 255)
-                          :
-                      isDisabled == true ?
-                      const Color.fromARGB(10, 255, 255, 255)
-                          :
-                      boxColor,
+                    color: SuperBoxController.boxColor(
+                        color: boxColor,
+                        greyScale: greyScale,
+                        isDisabled: isDisabled,
+                    ),
 
                       // borderRadius: cornersAsBorderRadius,
                       // boxShadow: const <BoxShadow>[
@@ -59,16 +64,20 @@ class TheBoxOfSuperBox extends StatelessWidget {
                         //     blurStyle: BlurStyle.outer
                         // ),
                       // ]
+
                   ),
+
                   child: Stack(
                     alignment: Alignment.center,
                     children: children,
                   ),
+
                 ),
               ),
             ),
           ),
         ),
+
       ],
     );
 

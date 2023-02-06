@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-
+import '../x_controllers/xxx_super_box_controller.dart';
+/// => TAMAM
 class TapLayer extends StatelessWidget {
   /// --------------------------------------------------------------------------
   const TapLayer({
@@ -29,41 +30,19 @@ class TapLayer extends StatelessWidget {
   final Function onDisabledTap;
   final Function onLongTap;
   final Function onDoubleTap;
-  /// --------------------------------------------------------------------------
-  Future<void> _onTap(BuildContext context) async {
+  // --------------------------------------------------------------------------
+  /// TESTED : WORKS PERFECT
+  Future<void> onBoxTap() async {
 
-    /// DEACTIVATED
-    if (isDisabled == true){
-
-      /// NO DEACTIVATED TAP
-      if (onDisabledTap == null){
-        // do nothing
-      }
-      /// CAN TAP DEACTIVATED
-      else {
-        onDisabledTap();
-      }
-    }
-
-    /// NOT DEACTIVATED
-    else {
-
-      /// CAN TAP
-      if (onTap != null){
-
-        // await Future.delayed(
-        //     const Duration(milliseconds: 50,),
-        //         () async { onTap(); }
-        // );
-
-        await onTap();
-
-      }
-
-    }
+    await SuperBoxController.onBoxTap(
+        isDisabled: isDisabled,
+        onDisabledTap: onDisabledTap,
+        onTap: onTap
+    );
 
   }
-  // -----------------------------------------------------------------------------
+  // --------------------
+  /// TESTED : WORKS PERFECT
   bool _canTap(){
 
     /// DEACTIVATED
@@ -97,6 +76,7 @@ class TapLayer extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return SizedBox(
+      key: const ValueKey<String>('DreamBoxTapLayer'),
       width: width,
       height: height,
       child: Material(
@@ -113,7 +93,7 @@ class TapLayer extends StatelessWidget {
               (TapUpDetails details) => onTapUp(),
           child: InkWell(
             splashColor: isDisabled == true ? const Color.fromARGB(20, 255, 255, 255) : splashColor,
-            onTap: _canTap() == true ? () => _onTap(context) : null,
+            onTap: _canTap() == true ? () => onBoxTap() : null,
             onTapCancel: onTapCancel,
             onLongPress: onLongTap,
             onDoubleTap: onDoubleTap,
