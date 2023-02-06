@@ -1,11 +1,4 @@
-import 'package:flutter/material.dart';
-import 'b_super_box_child/x_super_box_child.dart';
-import 'd_super_box_highlights/x_box_highlight.dart';
-import 'e_super_box_gradient/x_box_gradient.dart';
-import 'f_super_box_tap_layer/x_tap_layer.dart';
-import 'c_super_box_contents/x_super_box_contents.dart';
-import 'x_controllers/xxx_super_box_controller.dart';
-import 'a_the_box_of_super_box/x_the_box_of_super_box.dart';
+part of super_box;
 
 class SuperBox extends StatelessWidget {
   /// --------------------------------------------------------------------------

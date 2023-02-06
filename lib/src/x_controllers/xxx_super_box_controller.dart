@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'z_helper_methods.dart';
+part of super_box;
 
 class SuperBoxController {
   /// --------------------------------------------------------------------------

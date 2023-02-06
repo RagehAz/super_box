@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../x_controllers/xxx_super_box_controller.dart';
+
+import '../../super_box.dart';
 /// => TAMAM
 class TheBoxOfSuperBox extends StatelessWidget {
   /// --------------------------------------------------------------------------

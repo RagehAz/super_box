@@ -1,9 +1,8 @@
-import 'package:bldrs_theme/bldrs_theme.dart';
 import 'package:flutter/material.dart';
-
+import '../../super_box.dart';
 import 'icon_box.dart';
 import 'x_super_box_verses.dart';
-import '../x_controllers/xxx_super_box_controller.dart';
+
 /// => TAMAM
 class SuperBoxContents extends StatelessWidget {
   /// --------------------------------------------------------------------------
