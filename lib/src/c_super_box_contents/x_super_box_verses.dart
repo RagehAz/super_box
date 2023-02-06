@@ -141,7 +141,7 @@ class SuperBoxTexts extends StatelessWidget {
                 // shadow: _verseShadowIsOn(),
                 maxLines: textMaxLines,
                 centered: _textIsCentered,
-                appIsLeftToRight: appIsLTR,
+                appIsLTR: appIsLTR,
                 italic: textItalic,
                 redDot: redDot,
                 highlight: highlight,
@@ -168,7 +168,7 @@ class SuperBoxTexts extends StatelessWidget {
                     italic: true,
                     textDirection: textDirection,
                     font: textFont,
-                    appIsLeftToRight: appIsLTR,
+                    appIsLTR: appIsLTR,
                     // shadow: _secondLineShadowIsOn(),
                     centered: _textIsCentered,
                     // scaleFactor: secondLineScaleFactor,
@@ -176,7 +176,7 @@ class SuperBoxTexts extends StatelessWidget {
                     highlightColor: highlightColor,
                     package: package,
 
-                    margin:
+                    margins:
                     // _verseWidth == null ?
                     EdgeInsets.symmetric(horizontal: height * 0.2)
                   //     :

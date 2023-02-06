@@ -1,3 +1,7 @@
+## 1.0.4
+
+* Super_text update impact fix
+* 
 ## 1.0.3
 
 * fixed Loading
