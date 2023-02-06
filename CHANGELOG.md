@@ -1,3 +1,7 @@
+## 1.0.3
+
+* fixed Loading
+
 ## 1.0.2
 
 * fixes
@@ -31,5 +35,4 @@
 * Added Loading indicator to replace icon if loading
 
 ## 0.0.1
-
 * this was originally the dreambox,, but got packaged into the SuperBox

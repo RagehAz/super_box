@@ -33,21 +33,22 @@ class BoxIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final Color _iconColor = SuperBoxController.iconColor(
-      colorOverride: iconColor,
-      isDisabled: isDisabled,
-      greyScale: greyscale,
-    );
-
     if (loading == true){
       return Loading(
         loading: true,
         size: size,
-        color: _iconColor,
+        color: const Color.fromARGB(650, 255, 255, 255),
       );
     }
 
     else {
+
+      final Color _iconColor = SuperBoxController.iconColor(
+        colorOverride: iconColor,
+        isDisabled: isDisabled,
+        greyScale: greyscale,
+      );
+
       return SuperImage(
         key: const ValueKey<String>('DreamBoxIcon'),
         width: size,
