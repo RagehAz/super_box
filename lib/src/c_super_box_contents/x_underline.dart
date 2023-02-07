@@ -64,7 +64,7 @@ class UnderLine extends StatelessWidget {
               child: SuperText(
                 text: underLine,
                 textColor: underLineColor,
-                lineHeight: _underlineHeightXXX,
+                textHeight: _underlineHeightXXX,
                 maxLines: 2,
                 // shadow: underLineShadowIsOn,
               ),

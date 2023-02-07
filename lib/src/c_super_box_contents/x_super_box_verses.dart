@@ -123,7 +123,7 @@ class SuperBoxTexts extends StatelessWidget {
                 boxWidth: _verseWidth,
                 package: package,
                 text: text,
-                lineHeight: SuperBoxController.textLineHeight(
+                textHeight: SuperBoxController.textLineHeight(
                   height: height,
                   iconSizeFactor: iconSizeFactor,
                   textScaleFactor: textScaleFactor,
@@ -157,7 +157,7 @@ class SuperBoxTexts extends StatelessWidget {
                 child: SuperText(
                     text: secondText,
                     weight: FontWeight.w200,
-                    lineHeight: height * 0.4,
+                    textHeight: height * 0.4,
                     textColor: SuperBoxController.textColor(
                       colorOverride: secondTextColor,
                       isDisabled: isDisabled,
