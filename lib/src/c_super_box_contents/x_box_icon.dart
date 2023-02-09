@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:super_image/super_image.dart';
 import '../../super_box.dart';
-import 'x_loading.dart';
 /// => TAMAM
 class BoxIcon extends StatelessWidget {
   /// --------------------------------------------------------------------------
